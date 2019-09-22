@@ -1,7 +1,6 @@
 //TEST 1c
 //Arithmetic Checks: Give multiple valid data and check for arithmetic correctness for simulated vs expected output
 task valid_toggle_checks;
-$display("\n//++++++++++++++++++++++++++++++++++++++\n// Starting Arithmetic Checks with random valid_in\n//++++++++++++++++++++++++++++++++++++++\n");
 
    int i;
    int indata, outdata, validin;
@@ -10,6 +9,7 @@ $display("\n//++++++++++++++++++++++++++++++++++++++\n// Starting Arithmetic Che
    ifh=$fopen("./inputDataPart2", "r");
    ofh=$fopen("./expectedOutputPart2", "r");
 
+	$display("\n//++++++++++++++++++++++++++++++++++++++\n// Starting Arithmetic Checks with random valid_in\n//++++++++++++++++++++++++++++++++++++++\n");
       // Before first clock edge, initialize
       reset = 1;
       a = 0;

@@ -21,7 +21,7 @@ module tb_part2();
    `include "./tasks/valid_toggle_checks.sv"
 
    initial begin
-	arith_checks();
+	//arith_checks(); // Commenting this check out as this is already a part of the next one
 	valid_toggle_checks();
 	reset_checks();
 	#20;
@@ -34,8 +34,8 @@ module tb_part2();
 	   out_data_old <= (reset == 1) ? 'b0 : ((valid_out == 1) ? out_data_new : out_data_old);
    end
 
-   initial begin
-	overflow_check();
-   end // initial begin overflow test
+   //initial begin
+   //     overflow_check();
+   //end // initial begin overflow test
 
 endmodule // tb_part2_mac
