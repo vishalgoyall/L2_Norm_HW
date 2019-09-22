@@ -28,10 +28,10 @@ task valid_toggle_checks;
       	      assign valid_in = validin[0];
 	      assign a = indata[7:0];
 
-	      assert (f == outdata[19:0]) 
-	      	      $display("actual output %x and expected output %x match", f, outdata); 
+	      assert (g == outdata[19:0]) 
+	      	      $display("actual output %x and expected output %x match", g, outdata); 
 	      else
-		      $error("mismatch in actual output data %x and expected output data %x", f, outdata);
+		      $error("mismatch in actual output data %x and expected output data %x", g, outdata);
       end
 
 endtask

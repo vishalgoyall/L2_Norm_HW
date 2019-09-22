@@ -25,7 +25,7 @@ int main() {
   inputData = fopen("inputDataPart3", "w");
   expectedOutput = fopen("expectedOutputPart3", "w");
 
-  fprintf(expectedOutput, "0\n0\n"); // To match output file
+  fprintf(expectedOutput, "0\n0\n0\n"); // To match output file
 
   int i, a, b, c;
   int sum = 0;
