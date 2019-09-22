@@ -1,8 +1,8 @@
 // This is a very small testbench for you to check that you have the right
 // idea for the input/output timing.
 
-// This should not be your only test -- it's simply a basic way to make
-// sure you have the right idea.
+// 
+// 
 
 module tb_part2();
 
@@ -14,6 +14,9 @@ module tb_part2();
 
    initial clk = 0;
    always #5 clk = ~clk;
+
+   // PLACE HOLDER FOR ALL TASK FILES
+   `include "./tasks/reset_checks.sv"
 
    int i;
    int indata, outdata;
@@ -57,11 +60,17 @@ module tb_part2();
    end
 
    initial begin
-	   assert property (@(posedge clk) (valid_out) |-> (out_data_old <= out_data_new))
+	   @(posedge clk)
+	   assert property ((valid_out) |-> (out_data_old <= out_data_new))
 	   $display("%x old data, %x new data", $out_data_old, $out_data_new);
 	   else
 		   $warning("output data overflow happened while accumulating squared inputs with data being %x and %x", out_data_old, out_data_new);
 
    end // initial begin overflow test
+
+   initial begin
+	   // call reset checks task
+	   reset_checks();
+   end
 
 endmodule // tb_part2_mac
