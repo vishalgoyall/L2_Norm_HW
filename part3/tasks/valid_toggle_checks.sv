@@ -6,8 +6,8 @@ task valid_toggle_checks;
    int indata, outdata, validin;
    int ifh, ofh;
 
-   ifh=$fopen("./inputDataPart2", "r");
-   ofh=$fopen("./expectedOutputPart2", "r");
+   ifh=$fopen("./inputDataPart3", "r");
+   ofh=$fopen("./expectedOutputPart3", "r");
 
 	$display("\n//++++++++++++++++++++++++++++++++++++++\n// Starting Arithmetic Checks with random valid_in\n//++++++++++++++++++++++++++++++++++++++\n");
       // Before first clock edge, initialize

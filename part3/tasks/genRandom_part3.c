@@ -2,15 +2,18 @@
 #include <time.h>
 #include <math.h>
 
-float sq_root(int number) {
-	float temp, sqrt;
-	sqrt = number/2;
-	temp = 0;
+float sq_root(int in_num) {
+	float root, var;
+	root = in_num/2;
+	var = 0;
 
-	while(sqrt != temp) {
-		temp = sqrt;
-		sqrt = (number/temp + temp)/2;
+	while(root != var) {
+		var = root;
+		root = in_num/var;
+		root = root + var;
+		root = root/2;
 	}
+	return root;
 }
 
 int main() {
@@ -26,15 +29,21 @@ int main() {
 
   int i, a, b, c;
   int sum = 0;
-  float root;
+  float root=0;
+  int root_int;
 
   for (i=0; i<desiredInputs; i++) {
     a = rand() % 256;
+    b = rand() % 2;
     fprintf(inputData, "%x\n", a);
+    fprintf(inputData, "%x\n", b);
     a = a*a;
-    sum = sum + a;
-    root = sq_root(sum);
-    fprintf(expectedOutput, "%x\n", floor(root));
+    if (b==1) {
+    	sum = sum + a;
+	root = sq_root(sum);
+	root_int = root/1;
+    }
+    fprintf(expectedOutput, "%x\n", root_int);
   }
 
   fclose(inputData);

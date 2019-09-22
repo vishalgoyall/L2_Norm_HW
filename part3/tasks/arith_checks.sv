@@ -6,9 +6,10 @@ task arith_checks;
    int indata, outdata;
    int ifh, ofh;
 
-   ifh=$fopen("./inputDataPart2", "r");
-   ofh=$fopen("./expectedOutputPart2", "r");
+   ifh=$fopen("./inputDataPart3", "r");
+   ofh=$fopen("./expectedOutputPart3", "r");
 
+	$display("\n//++++++++++++++++++++++++++++++++++++++\n// Starting Arithmetic Checks with valid_in tied to 1\n//++++++++++++++++++++++++++++++++++++++");
       // Before first clock edge, initialize
       reset = 1;
       a = 0;
@@ -21,7 +22,7 @@ task arith_checks;
       for (i = 0; i < 100; i++) begin
 	      @(posedge clk);
 	      $fscanf(ifh,"%h\n", indata);
-	      $fscanf(ofh,"%d\n", outdata);
+	      $fscanf(ofh,"%h\n", outdata);
 	      #1;
       	      assign valid_in = 1;
 	      assign a = indata[7:0];

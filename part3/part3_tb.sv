@@ -4,13 +4,13 @@
 // 
 // 
 
-module tb_part2();
+module tb_part3();
 
    logic clk, reset, valid_in, valid_out, overflow;
    logic [7:0] a;
-   logic [19:0] f;
+   logic [9:0] g;
 
-   part2 dut(.clk(clk), .reset(reset), .a(a), .valid_in(valid_in), .f(f), .valid_out(valid_out));
+   part3 dut(.clk(clk), .reset(reset), .a(a), .valid_in(valid_in), .g(g), .valid_out(valid_out));
 
    initial clk = 0;
    always #5 clk = ~clk;
@@ -18,32 +18,16 @@ module tb_part2();
    // PLACE HOLDER FOR ALL TASK FILES
    `include "./tasks/reset_checks.sv"
    `include "./tasks/arith_checks.sv"
+   `include "./tasks/valid_toggle_checks.sv"
+   `include "./tasks/overflow_check.sv"
 
    initial begin
-	arith_checks();
+	//arith_checks(); // Commenting this check out as this is already a part of the next one
+	valid_toggle_checks();
+	reset_checks();
+        overflow_check();
 	#20;
 	$finish;
-   end // initial begin arith test
-
-   logic [19:0] out_data_old, out_data_new;
-   always @(posedge clk) begin
-	   out_data_new <= (valid_out == 1) ? f : out_data_new;
-	   out_data_old <= (reset == 1) ? 'b0 : ((valid_out == 1) ? out_data_new : out_data_old);
    end
 
-/*   initial begin
-	   @(posedge clk)
-	   assert property ((valid_out) |-> (out_data_old <= out_data_new))
-	   $display("%x old data, %x new data", $out_data_old, $out_data_new);
-	   else
-		   $warning("output data overflow happened while accumulating squared inputs with data being %x and %x", out_data_old, out_data_new);
-
-   end // initial begin overflow test
-   */
-
-   //initial begin
-	// call reset checks task
-	//reset_checks();
-   //end
-
-endmodule // tb_part2_mac
+endmodule // tb_part3_mac
