@@ -18,12 +18,20 @@ module tb_part2();
    // PLACE HOLDER FOR ALL TASK FILES
    `include "./tasks/reset_checks.sv"
    `include "./tasks/arith_checks.sv"
+   `include "./tasks/valid_toggle_checks.sv"
 
-   initial begin
+/*   initial begin
 	arith_checks();
 	#20;
 	$finish;
    end // initial begin arith test
+*/
+
+   initial begin
+	valid_toggle_checks();
+	#20;
+	$finish;
+   end
 
    logic [19:0] out_data_old, out_data_new;
    always @(posedge clk) begin
