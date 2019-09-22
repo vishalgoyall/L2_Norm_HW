@@ -1,0 +1,7 @@
+--CI
+git add <filename>
+git commit -m "mssg"
+git push
+
+--CO
+git pull
