@@ -20,15 +20,10 @@ module tb_part2();
    `include "./tasks/arith_checks.sv"
    `include "./tasks/valid_toggle_checks.sv"
 
-/*   initial begin
-	arith_checks();
-	#20;
-	$finish;
-   end // initial begin arith test
-*/
-
    initial begin
+	arith_checks();
 	valid_toggle_checks();
+	reset_checks();
 	#20;
 	$finish;
    end
@@ -39,19 +34,8 @@ module tb_part2();
 	   out_data_old <= (reset == 1) ? 'b0 : ((valid_out == 1) ? out_data_new : out_data_old);
    end
 
-/*   initial begin
-	   @(posedge clk)
-	   assert property ((valid_out) |-> (out_data_old <= out_data_new))
-	   $display("%x old data, %x new data", $out_data_old, $out_data_new);
-	   else
-		   $warning("output data overflow happened while accumulating squared inputs with data being %x and %x", out_data_old, out_data_new);
-
+   initial begin
+	overflow_check();
    end // initial begin overflow test
-   */
-
-   //initial begin
-	// call reset checks task
-	//reset_checks();
-   //end
 
 endmodule // tb_part2_mac
