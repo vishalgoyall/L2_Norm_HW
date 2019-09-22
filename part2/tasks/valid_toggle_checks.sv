@@ -19,7 +19,7 @@ task valid_toggle_checks;
       #1; // After 1 posedge
       reset = 0; a = 10; valid_in = 0;
       
-      for (i = 0; i < 100; i++) begin
+      for (i = 0; i < 200; i++) begin
 	      @(posedge clk);
 	      $fscanf(ifh,"%h\n", indata);
 	      $fscanf(ifh,"%h\n", validin);
