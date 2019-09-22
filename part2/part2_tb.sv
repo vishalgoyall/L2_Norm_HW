@@ -25,12 +25,9 @@ module tb_part2();
 	//arith_checks(); // Commenting this check out as this is already a part of the next one
 	valid_toggle_checks();
 	reset_checks();
+        overflow_check();
 	#20;
 	$finish;
    end
-
-   always begin
-        overflow_check();
-   end // initial begin overflow test
 
 endmodule // tb_part2_mac
