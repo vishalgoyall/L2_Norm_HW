@@ -5,3 +5,24 @@ git push
 
 --CO
 git pull
+
+--status
+git status      //shows status of local files, both new and edited
+git status -uno // shows status of edited files only (untracked files are not shown)
+
+-- commit list
+// for this first add the below 8 lines to ~/.gitconfig
+[alias]
+  ci   =  commit
+  br   =  branch
+  d    =  diff
+  lola =  "log --graph --decorate --pretty=oneline --abbrev-commit --all"
+  lols =  "log --graph --decorate --pretty=oneline --abbrev-commit"
+[push]
+	default = simple
+
+// Command to show commit list
+git lols 
+
+// show current branch
+git br
