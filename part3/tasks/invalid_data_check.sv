@@ -15,7 +15,7 @@ int i;
 			a = $urandom_range(256,1);
 		end
 	end
-	@ (posedge clk) assert (f == 0) $display("Invalid Data not being processed by design"); else $error("Invalid data being processed by design!!");
+	@ (posedge clk) assert (g == 0) $display("Invalid Data not being processed by design"); else $error("Invalid data being processed by design!!");
 
  $display("\n//+++++++ DONE +++++++++++++++++++++++++\n");
 

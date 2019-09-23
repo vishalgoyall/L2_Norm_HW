@@ -12,6 +12,8 @@ task valid_toggle_checks;
 	$display("\n//++++++++++++++++++++++++++++++++++++++\n// Starting Arithmetic Checks with random valid_in\n//++++++++++++++++++++++++++++++++++++++\n");
 	$display("Current TimeStamp is %2d ns",$realtime);
       // Before first clock edge, initialize
+      @(posedge clk);
+      #1;
       reset = 1;
       a = 0;
       valid_in = 0;
@@ -26,8 +28,8 @@ task valid_toggle_checks;
 	      $fscanf(ifh,"%h\n", validin);
 	      $fscanf(ofh,"%h\n", outdata);
 	      #1;
-      	      assign valid_in = validin[0];
-	      assign a = indata[7:0];
+      	      valid_in = validin[0];
+	      a = indata[7:0];
 
 	      assert (f == outdata[19:0]) 
 	      	      $display("actual output %x and expected output %x match", f, outdata); 
