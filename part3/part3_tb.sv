@@ -1,13 +1,13 @@
 // Project 1 : Part 2 testbench
 // Authors : Prateek Jain and Vishal Goyal
 
-module tb_part2();
+module tb_part3();
 
    logic clk, reset, valid_in, valid_out, overflow;
    logic [7:0] a;
-   logic [19:0] f;
+   logic [9:0] g;
 
-   part2 dut(.clk(clk), .reset(reset), .a(a), .valid_in(valid_in), .f(f), .valid_out(valid_out));
+   part3 dut(.clk(clk), .reset(reset), .a(a), .valid_in(valid_in), .g(g), .valid_out(valid_out));
 
    initial clk = 0;
    always #5 clk = ~clk;
@@ -48,4 +48,4 @@ module tb_part2();
 	$finish;
    end
 
-endmodule // tb_part2_mac
+endmodule // tb_part3_mac
