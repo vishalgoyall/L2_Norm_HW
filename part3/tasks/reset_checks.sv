@@ -1,9 +1,5 @@
 //Following Test is done to check thoroughness of reset along with other input control params like clock and valid_en
 
-task reset_checks;
- int i;
- int j;
-$display("\n//++++++++++++++++++++++++++++++++++++++\n// Starting Reset Checks\n//++++++++++++++++++++++++++++++++++++++");
  //TEST 	 
  //Back to Back reset check : Reset to be checked for all events where an enable for flop has to be generated
  //Cases : 
@@ -13,6 +9,11 @@ $display("\n//++++++++++++++++++++++++++++++++++++++\n// Starting Reset Checks\n
  //4. Reset 1 and Enable_g 0->1
  //5. Reset 1 and Enable_g 1
  //6. Valid data and Reset 1 for B2B 2 Valid data clocks
+
+task reset_checks;
+ int i;
+ int j;
+$display("\n//++++++++++++++++++++++++++++++++++++++\n// Starting Reset Checks\n//++++++++++++++++++++++++++++++++++++++");
  
  //Design asserts will fail if reset is not working correctly
 	 for(i=0; i<6; i++) begin
@@ -30,41 +31,6 @@ $display("\n//++++++++++++++++++++++++++++++++++++++\n// Starting Reset Checks\n
 		 end
 	 end
 	 
- //@(posedge clk)
- //#1
- //valid_in = 1'b1;
- //a = 8'd3;
- //@(posedge clk)
- //#1
- //valid_in = 1'b1;
- //a = 8'd5;
- //reset = 1'b1;
- //@(posedge clk)
- //#1
- //valid_in = 1'b1;
- //a = 8'd9;
- //reset = 1'b0;
- //@(posedge clk)
- //#1
- //valid_in = 1'b0;
- //a = 8'd6;
- //reset = 1'b1;
- //@(posedge clk)
- //#1
- //reset = 1'b0;
- //@(posedge clk)
- //#1
- //reset = 1'b1;
- //valid_in = 1'b1;
- //a = 8'd4;
- //@(posedge clk)
- //#1
- //reset = 1'b0;
- //valid_in = 1'b1;
- //@(posedge clk)
- //#1
- //valid_in = 1'b1;
- //a = 8'd10;
 $display("\n//+++++++ DONE +++++++++++++++++++++++++\n");
 
 endtask

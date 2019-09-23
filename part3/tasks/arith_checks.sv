@@ -24,8 +24,8 @@ task arith_checks;
 	      $fscanf(ifh,"%h\n", indata);
 	      $fscanf(ofh,"%h\n", outdata);
 	      #1;
-      	      assign valid_in = 1;
-	      assign a = indata[7:0];
+      	       valid_in = 1;
+	       a = indata[7:0];
 
 	      assert (g == outdata[19:0]) 
 	      	      $display("actual output %x and expected output %x match", g, outdata); 
