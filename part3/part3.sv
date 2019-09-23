@@ -39,11 +39,14 @@ assign valid_out = enable_out;
 //Assertions
 //1. Sync reset check
      assert property (@(posedge clk) reset |=> (enable_f == 0)) else $error ("Sync reset not applied of flop enable_f");
+     assert property (@(posedge clk) reset |=> (enable_g == 0)) else $error ("Sync reset not applied of flop enable_g");
      assert property (@(posedge clk) reset |=> (enable_out == 0)) else $error ("Sync reset not applied of flop enable_out");
 //2. EN to accum to change 1 clock after valid_in signal
      assert property (@(posedge clk) (valid_in && !reset) |-> ##1 enable_f) else $error ("Accumulator not getting updated at correct clock edge");
-//3. Valid out to change 2 clocks after valid_in signal
-     assert property (@(posedge clk) (valid_in && !reset) |-> ##1 !reset |-> ##1 valid_out) else $error ("Valid out not coming 2 clocks after valid_in");
+//3. EN to sq_root data latching to change 2 clock after valid_in signal
+     assert property (@(posedge clk) (valid_in && !reset) |-> ##1 !reset |-> ##1 enable_g) else $error ("Square root data not getting updated at correct clock edge");
+//4. Valid out to change 3 clocks after valid_in signal
+     assert property (@(posedge clk) (valid_in && !reset) |-> ##1 !reset |-> ##1 !reset |-> ##1 valid_out) else $error ("Valid out not coming 3 clocks after valid_in");
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 // Registering input values in flops
