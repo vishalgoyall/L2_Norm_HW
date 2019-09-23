@@ -12,6 +12,8 @@ task valid_toggle_checks;
 	$display("\n//++++++++++++++++++++++++++++++++++++++\n// Starting Arithmetic Checks with random valid_in\n//++++++++++++++++++++++++++++++++++++++\n");
 	$display("Current TimeStamp is %2d ns",$realtime);
       // Before first clock edge, initialize
+      @(posedge clk);
+      #1;
       reset = 1;
       a = 0;
       valid_in = 0;

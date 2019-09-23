@@ -7,7 +7,8 @@ task overflow_check();
 	$display("\n//++++++++++++++++++++++++++++++++++++++\n// Starting Overflow Checks \n//++++++++++++++++++++++++++++++++++++++\n");
 	$display("Current TimeStamp is %2d ns",$realtime);
 	// Before first clock edge, initialize
-	reset = 1;
+	@(posedge clk);
+	#1 reset = 1;
 	a = 0;
 	valid_in = 0;
 	out_data_old = 0;
@@ -15,7 +16,6 @@ task overflow_check();
 	
 	for (i = 0; i < 30; i++) begin
 		@(posedge clk);
-		reset = 0;
 		#1;
       		 valid_in = 1;
 		 a = 8'hff;
