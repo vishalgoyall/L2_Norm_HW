@@ -30,7 +30,7 @@ int main() {
   int i, a, b, c;
   int sum = 0;
   float root=0;
-  int root_int;
+  int root_int=0;
 
   for (i=0; i<desiredInputs; i++) {
     a = rand() % 256;
