@@ -26,8 +26,8 @@ task valid_toggle_checks;
 	      $fscanf(ifh,"%h\n", validin);
 	      $fscanf(ofh,"%h\n", outdata);
 	      #1;
-      	      assign valid_in = validin[0];
-	      assign a = indata[7:0];
+      	       valid_in = validin[0];
+	       a = indata[7:0];
 
 	      assert (g == outdata[19:0]) 
 	      	      $display("actual output %x and expected output %x match", g, outdata); 

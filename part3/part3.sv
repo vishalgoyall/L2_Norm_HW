@@ -149,11 +149,11 @@ end : output_register
  //Assertion to check against async reset on flops
    always@(posedge reset) begin
    #1 assert ((a_reg == $past(a_reg)) || $isunknown($past(a_reg))) else $error ("Looks like async reset has happened for flop a_reg");
-   #1 assert ((enable_f == $past(enable_f)) || $isunknown($past(enable_f))) else $error ("Looks like async reset has happened for flop enable_f");
-   #1 assert ((enable_g == $past(enable_g)) || $isunknown($past(enable_g))) else $error ("Looks like async reset has happened for flop enable_g");
-   #1 assert ((enable_out == $past(enable_out)) || $isunknown($past(enable_out))) else $error ("Looks like async reset has happened for flop enable_out");
-   #1 assert ((f == $past(f)) || $isunknown($past(f))) else $error ("Looks like async reset has happened for flop f");
-   #1 assert ((g == $past(g)) || $isunknown($past(g))) else $error ("Looks like async reset has happened for flop g");
+   assert ((enable_f == $past(enable_f)) || $isunknown($past(enable_f))) else $error ("Looks like async reset has happened for flop enable_f");
+   assert ((enable_g == $past(enable_g)) || $isunknown($past(enable_g))) else $error ("Looks like async reset has happened for flop enable_g");
+   assert ((enable_out == $past(enable_out)) || $isunknown($past(enable_out))) else $error ("Looks like async reset has happened for flop enable_out");
+   assert ((f == $past(f)) || $isunknown($past(f))) else $error ("Looks like async reset has happened for flop f");
+   assert ((g == $past(g)) || $isunknown($past(g))) else $error ("Looks like async reset has happened for flop g");
  end
 
 endmodule

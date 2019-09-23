@@ -17,8 +17,8 @@ task overflow_check();
 		@(posedge clk);
 		reset = 0;
 		#1;
-      		assign valid_in = 1;
-		assign a = 8'hff;
+      		 valid_in = 1;
+		 a = 8'hff;
 
 		out_data_new <= (valid_out == 1'b1) ? f : out_data_new;
 		out_data_old <= (reset == 1'b1) ? 'b0 : ((valid_out == 1'b1) ? out_data_new : out_data_old);
