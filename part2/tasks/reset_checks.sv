@@ -2,6 +2,7 @@
 
 task reset_checks;
 $display("\n//++++++++++++++++++++++++++++++++++++++\n// Starting Reset Checks\n//++++++++++++++++++++++++++++++++++++++");
+$display("Current TimeStamp is %2d ns",$realtime); 
  //TEST 	 
  //Back to Back reset check : Reset to be checked for all possible values of Valid IN along with reset signal
  //Sequence will be  Valid EN = 1 -> Reset ->  Valid EN = 1 -> Reset & Valid EN = 0 -> Valid En = 0 -> Reset & Valid En = 1 -> Valid EN = 1  
