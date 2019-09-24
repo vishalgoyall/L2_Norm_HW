@@ -2,12 +2,13 @@
 
 task invalid_data_check (); 
 int i;
+parameter invalid_data_cnt = 1000;
  $display("\n//++++++++++++++++++++++++++++++++++++++\n// Starting Invalid data Timing Check\n//++++++++++++++++++++++++++++++++++++++");
  $display("Current TimeStamp is %2d ns",$realtime); 
         @(posedge clk) 
                 #1 reset = 1'b1;
 
-	for(i = 0; i < 30; i++) begin
+	for(i = 0; i < invalid_data_cnt; i++) begin
 		@(posedge clk) begin
 			#1 
 			reset = 1'b0;
