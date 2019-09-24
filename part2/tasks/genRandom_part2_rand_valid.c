@@ -2,7 +2,7 @@
 #include <time.h>
 
 int main() {
-  int desiredInputs = 1000;
+  int desiredInputs = 12000;
   srand(time(NULL)); // Set random seed based on current time
 
   FILE *inputData, *expectedOutput;

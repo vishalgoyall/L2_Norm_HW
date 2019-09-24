@@ -22,7 +22,7 @@ task valid_toggle_checks;
       #1; // After 1 posedge
       reset = 0; a = 10; valid_in = 0;
       
-      for (i = 0; i < 50; i++) begin
+      for (i = 0; i < 10050; i++) begin
 	      @(posedge clk);
 	      $fscanf(ifh,"%h\n", indata);
 	      $fscanf(ifh,"%h\n", validin);
@@ -32,7 +32,7 @@ task valid_toggle_checks;
 	       a = indata[7:0];
 
 	      assert (f == outdata[19:0]) 
-	      	      $display("actual output %x and expected output %x match", f, outdata); 
+	      	      //$display("actual output %x and expected output %x match", f, outdata); 
 	      else
 		      $error("mismatch in actual output data %x and expected output data %x", f, outdata);
       end
