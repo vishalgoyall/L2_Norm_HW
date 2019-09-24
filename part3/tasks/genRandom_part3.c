@@ -17,7 +17,7 @@ float sq_root(int in_num) {
 }
 
 int main() {
-  int desiredInputs = 1000;
+  int desiredInputs = 11000;
   srand(time(NULL)); // Set random seed based on current time
 
   FILE *inputData, *expectedOutput;
@@ -40,6 +40,9 @@ int main() {
     a = a*a;
     if (b==1) {
     	sum = sum + a;
+	if (sum >= 1048576) {	// adding this check to realize the behaviour of overflow of sum 
+		sum = sum - 1048576;
+	}
 	root = sq_root(sum);
 	root_int = root/1;
     }
