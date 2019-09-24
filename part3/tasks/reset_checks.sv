@@ -14,7 +14,7 @@ task reset_checks;
  int i;
  int j;
 $display("\n//++++++++++++++++++++++++++++++++++++++\n// Starting Reset Checks\n//++++++++++++++++++++++++++++++++++++++");
- 
+$display(" Current time stamp is %2d", $realtime); 
  //Design asserts will fail if reset is not working correctly
 	 for(i=0; i<6; i++) begin
 		 for(j=0; j<i+1; j++) begin
