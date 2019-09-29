@@ -15,6 +15,7 @@ task valid_toggle_checks;
       reset = 1;
       a = 0;
       valid_in = 0;
+      error_count = 0;
 
       @(posedge clk);
       #1; // After 1 posedge
@@ -30,8 +31,10 @@ task valid_toggle_checks;
 	       a = indata[7:0];
 
 	      assert (g == outdata[9:0]) 
-	      else
+	      else begin
 		      $error("mismatch in actual output data %x and expected output data %x", g, outdata);
+			error_count++;
+		end
       end
 
  $display("\n//+++++++ DONE +++++++++++++++++++++++++\n");

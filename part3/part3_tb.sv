@@ -6,6 +6,7 @@ module tb_part3();
    logic clk, reset, valid_in, valid_out, overflow;
    logic [7:0] a;
    logic [9:0] g;
+   integer error_count;
 
    part3 dut(.clk(clk), .reset(reset), .a(a), .valid_in(valid_in), .g(g), .valid_out(valid_out));
 
